@@ -2,8 +2,8 @@
 
 nodenum=
 
-name=it_node_$nodenum
-workdir=~/nodes/$name
+name=itnode$nodenum
+workdir=~/nodes/it_node_$nodenum
 conf=config.conf
 
 function startNode() {
@@ -42,7 +42,7 @@ function stopNode() {
 
         echo Stopping node, pid $pid
         kill -INT $pid
-        sleep 2
+        sleep 10
         status
 
         if [ $res -eq 0 ]
