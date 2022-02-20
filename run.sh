@@ -42,12 +42,19 @@ function stopNode() {
 
         echo Stopping node, pid $pid
         kill -INT $pid
-        sleep 10
+        sleep 20
         status
 
         if [ $res -eq 0 ]
         then
-            echo Stop failed. Node still alive, pid $pid. Please check manually
+	        kill -HUP $pid
+	        sleep 20
+        	status
+
+		if [ $res -eq 0 ]
+	        then
+            		echo Stop failed. Node still alive, pid $pid. Please check manually
+        	fi
         fi
 
 	fi
