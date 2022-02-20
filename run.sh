@@ -36,10 +36,9 @@ function startNode() {
 function stopNode() {
     status
     if [ $res -ne 0 ]
-	then
-		echo Node not running
-	else
-
+    then
+	echo Node not running
+    else
         echo Stopping node, pid $pid
         kill -INT $pid
         sleep 20
@@ -57,7 +56,7 @@ function stopNode() {
         	fi
         fi
 
-	fi
+    fi
 }
 
 function status() {
